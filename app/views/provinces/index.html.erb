@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Provinces</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Capital</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @provinces.each do |province| %>
+      <tr>
+        <td><%= link_to province.name, island_provinces_path %></td>
+        <td><%= province.capital %></td>
+        <td><%= link_to 'Show', island_province_path(province.island_id, province.id) %></td>
+        <td><%= link_to 'Edit', edit_island_province_path(province.island_id, province.id) %></td>
+        <td><%= link_to 'Destroy', island_province_path(province.island_id, province.id), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Province', new_island_province_path %>
